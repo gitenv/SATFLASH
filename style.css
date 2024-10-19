@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gill Sans', sans-serif;
+    
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background: rgb(255, 255, 255);
+    background-size: 600% 600%;
+    
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+h4 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    font-family: 'Gill Sans', sans-serif;
+    font-style: normal;
+}
+
+.navigation {
+    margin-bottom: 20px;
+}
+
+.navigation button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: black; /* Black background */
+    color: white; /* White text color */
+    border: none;
+    cursor: pointer;
+    margin: 0 10px;
+    border-radius: 5px;
+}
+
+
+
+.flashcard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.flashcard {
+    background: linear-gradient(268deg, var(--color1), var(--color2));
+    background-size: 400% 400%;
+    animation: AnimationName 16s ease infinite;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    perspective: 1000px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    position: relative;
+    height: 425px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    -webkit-animation: AnimationName 16s ease infinite;
+    -moz-animation: AnimationName 16s ease infinite;
+    -o-animation: AnimationName 16s ease infinite;
+    animation: AnimationName 16s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 52%}
+    50%{background-position:100% 49%}
+    100%{background-position:0% 52%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 52%}
+    50%{background-position:100% 49%}
+    100%{background-position:0% 52%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:0% 52%}
+    50%{background-position:100% 49%}
+    100%{background-position:0% 52%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 52%}
+    50%{background-position:100% 49%}
+    100%{background-position:0% 52%}
+}
+
+.flashcard:nth-child(3n) {
+    --color1: #ff7a18;
+    --color2: #af002d;
+}
+
+.flashcard:nth-child(3n+1) {
+    --color1: #00ff87;
+    --color2: #60efff;
+}
+
+.flashcard:nth-child(3n+2) {
+    --color1: #ff00f5;
+    --color2: #00d0ff;
+}
+
+.flashcard:hover {
+    transform: scale(1.05);
+}
+
+.flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    transform-style: preserve-3d ;
+    transition: transform 0.8s;
+}
+
+.flashcard.flipped .flashcard-inner {
+    transform: rotateY(200deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.flashcard-front {
+    background-color: #2176ae00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    backdrop-filter: blur(10px); /* Glass blur effect */
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Optional: Add a subtle border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+
+.flashcard-back {
+    background-color: transparent;
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    backdrop-filter: blur(100px); /* Glass blur effect */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Optional: Add a subtle border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+    font-size: normal;
+}
+
+.flashcard-back p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+
+.logo {
+    position: absolute; /* Position logo absolutely within the header */
+    top: 10px; /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
+    width: 3.6cm; /* Set logo width */
+    height: 4cm; /* Maintain aspect ratio */
+    
+}

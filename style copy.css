@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gill Sans', sans-serif ;
+    
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+
+    background: linear-gradient(268deg, #ff7a18, #af002d);
+    background-size: 400% 400%;
+    -webkit-animation: AnimationName 19s ease infinite;
+    -moz-animation: AnimationName 19s ease infinite;
+    -o-animation: AnimationName 19s ease infinite;
+    animation: AnimationName 19s ease infinite;
+
+    @-webkit-keyframes AnimationName {
+        0%{background-position:0% 52%}
+        50%{background-position:100% 49%}
+        100%{background-position:0% 52%}
+    }
+    @-moz-keyframes AnimationName {
+        0%{background-position:0% 52%}
+        50%{background-position:100% 49%}
+        100%{background-position:0% 52%}
+    }
+    @-o-keyframes AnimationName {
+        0%{background-position:0% 52%}
+        50%{background-position:100% 49%}
+        100%{background-position:0% 52%}
+    }
+    @keyframes AnimationName {
+        0%{background-position:0% 52%}
+        50%{background-position:100% 49%}
+        100%{background-position:0% 52%}
+    }
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.navigation {
+    margin-bottom: 20px;
+}
+
+.navigation button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text color */
+    border: none;
+    cursor: pointer;
+    margin: 0 10px;
+    border-radius: 5px;
+}
+
+
+
+.flashcard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.flashcard {
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white */
+    color: #ffffff; /* Set text color to white */
+    border-radius: 10px;
+    padding: 20px;
+    perspective: 1000px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    position: relative;
+    height: 425px; /* Fixed height */
+    backdrop-filter: blur(10px); /* Glass blur effect */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Optional: Add a subtle border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+
+
+.flashcard:hover {
+    transform: scale(1.05);
+}
+
+.flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    transform-style: preserve-3d ;
+    transition: transform 0.8s;
+}
+
+.flashcard.flipped .flashcard-inner {
+    transform: rotateY(200deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.flashcard-front {
+    background-color: #2176ae00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    backdrop-filter: blur(10px); /* Glass blur effect */
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Optional: Add a subtle border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+
+.flashcard-back {
+    background-color: #535b8c;
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Optional: Add a subtle border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+    
+}
+
+.flashcard-back p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+
+.logo {
+    position: absolute; /* Position logo absolutely within the header */
+    top: 10px; /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
+    width: 3.6cm; /* Set logo width */
+    height: 4cm; /* Maintain aspect ratio */
+    
+}
