@@ -2,7 +2,8 @@
 const flashcardsContainer = document.getElementById('flashcards');
 const allButton = document.getElementById('allButton');
 const shuffleButton = document.getElementById('shuffleButton');
-
+const searchInput = document.getElementById('searchInput');
+const clearSearchButton = document.getElementById('clearSearch');
 
 // Flashcards Data
 let flashcardsData = [];
@@ -31,6 +32,11 @@ function generateFlashcards(data) {
     data.forEach(item => {
         const flashcard = document.createElement('div');
         flashcard.classList.add('flashcard');
+
+         // Add a data-search attribute with all searchable content
+         flashcard.setAttribute('data-search', 
+            `${item.vocab.toLowerCase()} ${item.definition.toLowerCase()} ${item.example.toLowerCase()}`
+        );
         
         const flashcardInner = document.createElement('div');
         flashcardInner.classList.add('flashcard-inner');
@@ -78,3 +84,30 @@ function shuffleArray(array) {
     }
     return array;
 }
+
+// Search Functionality - Trigger search on Enter key
+searchInput.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        const query = searchInput.value.toLowerCase().trim();
+        const flashcards = document.querySelectorAll('.flashcard');
+        
+        flashcards.forEach(flashcard => {
+            const searchContent = flashcard.getAttribute('data-search');
+            if (searchContent.includes(query)) {
+                flashcard.style.display = 'block';
+            } else {
+                flashcard.style.display = 'none';
+            }
+        });
+    }
+});
+
+// Clear Search - Clear input and reload all flashcards
+// Clear Search - Clear input and show all flashcards
+clearSearchButton.addEventListener('click', () => {
+    searchInput.value = ''; // Clear the search input
+    const flashcards = document.querySelectorAll('.flashcard');
+    flashcards.forEach(flashcard => {
+        flashcard.style.display = 'block';
+    });
+});
