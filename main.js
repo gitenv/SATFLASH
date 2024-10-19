@@ -8,7 +8,7 @@ const shuffleButton = document.getElementById('shuffleButton');
 let flashcardsData = [];
 
 // Fetch the CSV file from a static location
-fetch('/dutput.csv')
+fetch('dutput.csv')
     .then(response => response.text())
     .then(csvContent => {
         flashcardsData = parseCSV(csvContent);
